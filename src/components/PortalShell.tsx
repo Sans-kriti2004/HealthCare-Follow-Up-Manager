@@ -16,7 +16,7 @@ export function PortalShell({
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div>
             <Link className="text-sm font-semibold text-teal-700" href="/">
-              Healthcare Manager
+              MediSlot Care
             </Link>
             <h1 className="text-2xl font-bold text-slate-950">{title}</h1>
           </div>

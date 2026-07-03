@@ -40,6 +40,9 @@ export function BookingPanel() {
     event.preventDefault();
     if (!selectedDoctor || !selectedSlot) return;
 
+    const form = new FormData(event.currentTarget);
+    const symptoms = form.get("symptoms");
+
     setMessage("Holding slot...");
     const hold = await fetch("/api/appointments/hold", {
       method: "POST",
@@ -57,11 +60,10 @@ export function BookingPanel() {
     }
 
     const appointment = await hold.json();
-    const form = new FormData(event.currentTarget);
     await fetch(`/api/appointments/${appointment.id}/symptoms`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ symptoms: form.get("symptoms") }),
+      body: JSON.stringify({ symptoms }),
     });
     await fetch(`/api/appointments/${appointment.id}/confirm`, { method: "POST" });
     setMessage("Appointment confirmed. Email/calendar attempts are visible in admin logs.");

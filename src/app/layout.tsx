@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Healthcare Appointment Manager",
+  title: "MediSlot Care",
   description: "Patient, doctor, and admin appointment workflow with AI summaries.",
 };
 

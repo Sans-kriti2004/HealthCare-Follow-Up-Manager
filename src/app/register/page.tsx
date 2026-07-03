@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
@@ -12,13 +13,15 @@ export default function RegisterPage() {
     event.preventDefault();
     setError("");
     const form = new FormData(event.currentTarget);
+    const email = String(form.get("email") ?? "");
+    const password = String(form.get("password") ?? "");
     const response = await fetch("/api/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: form.get("name"),
-        email: form.get("email"),
-        password: form.get("password"),
+        email,
+        password,
         role: "PATIENT",
       }),
     });
@@ -28,7 +31,14 @@ export default function RegisterPage() {
       setError(data.error ?? "Could not register");
       return;
     }
-    router.push("/login");
+
+    await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+    router.push("/patient");
+    router.refresh();
   }
 
   return (

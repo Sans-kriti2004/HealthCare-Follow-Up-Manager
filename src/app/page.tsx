@@ -12,14 +12,16 @@ export default async function Home() {
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
-              Clinic workflow assignment
+              MediSlot Care
             </p>
             <h1 className="text-4xl font-bold leading-tight text-slate-950 sm:text-6xl">
-              Healthcare Appointment & Follow-up Manager
+              Smart clinic visits, from booking to follow-up
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-700">
-              A compact Next.js app with patient booking, doctor notes, admin doctor management,
-              AI summaries, slot holds, leave conflict handling, email logs, and Google Calendar hooks.
+              MediSlot Care helps patients find the right doctor, reserve a safe appointment slot,
+              share symptoms before the visit, and receive clear follow-up guidance after consultation.
+              Doctors get quick pre-visit context, while admins manage schedules, leave, and notifications
+              from one simple portal.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               {role ? (
@@ -39,16 +41,16 @@ export default async function Home() {
             </div>
           </div>
           <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-semibold">Demo accounts</h2>
+            <h2 className="text-xl font-semibold">Quick demo access</h2>
             <div className="mt-4 space-y-3 text-sm text-slate-700">
               <p><b>Admin:</b> admin@clinic.test / password123</p>
               <p><b>Doctor:</b> doctor@clinic.test / password123</p>
               <p><b>Patient:</b> patient@clinic.test / password123</p>
             </div>
             <div className="mt-6 grid gap-3 text-sm">
-              <p className="rounded-md bg-teal-50 p-3">Unique doctor + slot constraint prevents double booking.</p>
-              <p className="rounded-md bg-amber-50 p-3">HELD appointments expire after five minutes.</p>
-              <p className="rounded-md bg-sky-50 p-3">NotificationLog records email/calendar success and failure.</p>
+              <p className="rounded-md bg-teal-50 p-3">Patients can search doctors, hold a slot, and confirm appointments with symptoms.</p>
+              <p className="rounded-md bg-amber-50 p-3">Doctors see AI-assisted pre-visit notes and create patient-friendly visit summaries.</p>
+              <p className="rounded-md bg-sky-50 p-3">Admins manage doctors, leave conflicts, appointment records, and notification reliability.</p>
             </div>
           </div>
         </div>
